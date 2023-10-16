@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Page de connexion{% endblock %}
+
+{% block content %}
+    <p>{{ error }}</p>
+
+    <form action="" method="POST">
+        <div>
+            <label for="username">Nom d'utilisateur</label>
+            <input id="username" type="text" name="username" placeholder="Entrez votre nom d'utilisateur" />
+        </div>
+        <div>
+            <label for="password">Mot de passe</label>
+            <input id="password" type="password" name="password" placeholder="Entrez votre mot de passe" />
+        </div>
+        <div>
+            <button type="submit">Connexion</button>
+        </div>
+    </form>
+{% endblock %}

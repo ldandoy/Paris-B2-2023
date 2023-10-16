@@ -24,3 +24,7 @@ def login():
 @app.get('/profile/<string:username>')
 def profile(username):
     return render_template('profile.html', name=username)
+
+
+if __name__ == '__main__':
+    app.run()

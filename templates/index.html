@@ -1,0 +1,9 @@
+{% extends "layout/base.html" %}
+
+{% block title %}Page d'accueil{% endblock %}
+
+{% block content %}
+    <a href="{{ url_for('login') }}">Login</a>
+    <a href="{{ url_for('register') }}">Register</a>
+    <a href="{{ url_for('about') }}">About</a>
+{% endblock %}

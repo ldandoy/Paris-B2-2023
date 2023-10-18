@@ -1,0 +1,31 @@
+{% extends "layout/base.html" %}
+
+{% block title %}Page de creation de compte{% endblock %}
+
+{% block content %}
+    {% if error != None %}
+        <div>{{ error }}</div>
+    {% endif %}
+
+    <form action="{{ url_for('inscription') }}" method="POST">
+        <div>
+            <label for="username">Nom d'utilisateur</label>
+            <input id="username" class="form-control" type="text" name="username" placeholder="Entrez votre nom d'utilisateur" />
+        </div>
+        <div>
+            <label for="username_cf">Confirmez</label>
+            <input id="username_cf" class="form-control" type="text" name="username_cf" placeholder="Confirmez votre nom d'utilisateur" />
+        </div>
+        <div>
+            <label for="password">Mot de passe</label>
+            <input id="password" class="form-control" type="password" name="password" placeholder="Entrez votre mot de passe" />
+        </div>
+        <div>
+            <label for="password_cf">Confirmez</label>
+            <input id="password_cf" class="form-control" type="password" name="password_cf" placeholder="Confirmez votre mot de passe" />
+        </div>
+        <div class="mt-4">
+            <button class="btn btn-primary" type="submit" name="send">Création du compte</button>
+        </div>
+    </form>
+{% endblock %}

@@ -1,9 +1,18 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 from function import valid_login
 from pprint import pprint
+from flask_sqlalchemy import SQLAlchemy
+from flask_bcrypt import Bcrypt
+
+from models.user import User
 
 app = Flask(__name__)
 app.secret_key = "test"
+
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root@localhost:3306/b2-paris'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db = SQLAlchemy(app)
+bcrypt = Bcrypt(app)
 
 
 @app.get("/")
@@ -24,7 +33,15 @@ def register():
 @app.post('/inscription')
 def inscription():
     pprint(request.form)
-    return "test"
+    user = User(
+        username=request.form['username'],
+        password=bcrypt.generate_password_hash(request.form['password'])
+    )
+
+    db.session.add(user)
+    db.session.commit()
+
+    return redirect(url_for('login'))
 
 
 @app.route('/login', methods=['POST', 'GET'])

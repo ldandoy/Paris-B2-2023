@@ -7,17 +7,23 @@
         <div>{{ error }}</div>
     {% endif %}
 
-    <form action="" method="POST">
-        <div>
+    <form class="auth-form" action="" method="POST">
+        <div class="text-center">
+            <h1>Connexion au service</h1>
+        </div>
+        <div class="mt-3">
             <label for="username">Nom d'utilisateur</label>
-            <input id="username" type="text" name="username" placeholder="Entrez votre nom d'utilisateur" />
+            <input class="form-control" id="username" type="text" name="username" placeholder="Entrez votre nom d'utilisateur" />
         </div>
-        <div>
+        <div class="mt-3">
             <label for="password">Mot de passe</label>
-            <input id="password" type="password" name="password" placeholder="Entrez votre mot de passe" />
+            <input class="form-control" id="password" type="password" name="password" placeholder="Entrez votre mot de passe" />
         </div>
-        <div>
-            <button type="submit">Connexion</button>
+        <div class="mt-4 text-end">
+            <button class="btn btn-success" type="submit">Connexion</button>
+        </div>
+        <div class="mt-4 text-center">
+            <a class="btn text-small" href="{{ url_for('register') }}">Pas encore de compte ?</a>
         </div>
     </form>
 {% endblock %}

@@ -3,6 +3,25 @@
 {% block title %}Page profilel{% endblock %}
 
 {% block content %}
-    <h1>Hello {{ name }}</h1>
-    <a href="{{ url_for('logout') }}">Deconnexion</a>
+    <h1>Hello {{ username }}</h1>
+
+    <form  action="" method="POST">
+        <div class="mt-3">
+            <label for="username">Nom d'utilisateur</label>
+            <input id="username" value="{{ username }}" class="form-control" type="text" name="username" placeholder="Entrez votre nom d'utilisateur" />
+        </div>
+        <div class="mt-3">
+            <label for="password">Mot de passe</label>
+            <input id="password" class="form-control" type="password" name="password" placeholder="Entrez votre mot de passe" />
+        </div>
+        <div class="mt-3">
+            <label for="password_cf">Confirmez</label>
+            <input id="password_cf" class="form-control" type="password" name="password_cf" placeholder="Confirmez votre mot de passe" />
+        </div>
+        <div class="mt-4 text-center">
+            <button class="btn btn-success" type="submit" name="send">Mettre à jour</button>
+        </div>
+    </form>
+
+    <a class="btn btn-danger" href="{{ url_for('logout') }}">Deconnexion</a>
 {% endblock %}

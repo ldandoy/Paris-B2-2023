@@ -49,6 +49,9 @@ def login():
     error = None
 
     if request.method == 'POST':
+        # Récupérer le User pas son username
+
+        # Check si le mot de passe est egale à celui du formulaire
         if valid_login(request.form['username'], request.form['password']):
             session['username'] = request.form['username']
             return redirect(url_for('profile'))
@@ -61,7 +64,7 @@ def login():
 @app.get('/profile')
 def profile():
     if 'username' in session:
-        return render_template('profile.html', name=session['username'])
+        return render_template('profile.html', username=session['username'])
     else:
         return redirect(url_for('login'))
 

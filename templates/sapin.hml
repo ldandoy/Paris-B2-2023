@@ -1,0 +1,23 @@
+{% extends "layout/base.html" %}
+
+{% block content %}
+    <h1>Sapin</h1>
+
+    <div style="margin-top: -4rem">
+        {% for i in range(0, taille) %}
+            <div style="font-size: 30px; color: red; text-align: center; letter-spacing: 1.4rem; height: 2.4rem">
+                {% for y in range(0, i) %}
+                    *
+                {% endfor %}
+            </div>
+        {% endfor %}
+
+        {% set HALF = (taille/2) | round(0) | int %}
+
+        {% for z in range(0, HALF) %}
+            <div style="font-size: 20px; color: darkgreen; text-align: center; letter-spacing: 0.5rem">
+                {% for z in range(0, HALF) %}*{% endfor %}
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

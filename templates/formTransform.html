@@ -1,0 +1,19 @@
+{% extends "layout/base.html" %}
+
+{% block title %}Page transformation{% endblock %}
+
+{% block content %}
+
+    <h1>Transforme</h1>
+
+    {{ transm_word }}
+
+    <form action="" method="post">
+        <div>
+            <input type="text" name="word" />
+        </div>
+        <div>
+            <input type="submit" value="Transformer" name="send" />
+        </div>
+    </form>
+{% endblock %}

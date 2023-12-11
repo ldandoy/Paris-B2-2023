@@ -1,0 +1,25 @@
+{% extends "layout/base.html" %}
+
+{% block content %}
+    <h1>Caculer la TVA</h1>
+
+    <form action="" method="post">
+        <div>
+            <label>Entrez un prix</label>
+            <input type="number" name="price" min="0" />
+        </div>
+        <div>
+            <label>Entrez un taux (en %)</label>
+            <input type="number" name="taux" min="0" max="100" />
+        </div>
+        <div>
+            <input type="submit" name="send" value="Calculer" />
+        </div>
+    </form>
+
+    <div>
+        Total HT: {{ price }}<br />
+        Total TVA: {{ total_tva }}<br />
+        Total TTC: {{ total_tva + price }}
+    </div>
+{% endblock %}
